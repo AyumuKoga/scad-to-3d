@@ -31,7 +31,10 @@ const files = {};
 async function add(path) {
   const { stat } = await import("node:fs/promises");
   if ((await stat(path)).isDirectory()) {
-    for (const entry of await readdir(path)) await add(`${path}/${entry}`);
+    for (const entry of await readdir(path)) {
+      if (entry === "__pycache__") continue;
+      await add(`${path}/${entry}`);
+    }
   } else {
     files[`scad-to-3d/${path}`] = await readFile(path);
   }

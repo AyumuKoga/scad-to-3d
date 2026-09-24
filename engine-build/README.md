@@ -34,4 +34,4 @@ shasum -a 256 engine-source.tar.xz
 tar -xJf engine-source.tar.xz
 ```
 
-The input source trees are packaged before compilation. All build-time edits are in the included recipe. Retain released source as long as the matching engine is distributed; do not replace release assets with unrelated builds.
+The input source trees are packaged without modification; compilation changes only the copy inside Docker. All build-time edits are in the included recipe. Retain released source as long as the matching engine is distributed; do not replace release assets with unrelated builds.

@@ -38,7 +38,8 @@ def fetch(entry, cache):
                 if attempt == 2:
                     raise
                 time.sleep(2 ** attempt)
-    digest = hashlib.file_digest(destination.open('rb'), 'sha256').hexdigest()
+    with destination.open('rb') as verified_input:
+        digest = hashlib.file_digest(verified_input, 'sha256').hexdigest()
     if digest != entry['sha256']:
         raise ValueError(f'Source checksum mismatch: {entry["name"]}')
     return destination

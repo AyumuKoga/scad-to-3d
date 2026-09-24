@@ -10,7 +10,12 @@ cmake_lib() {
   cmake --build "/build-$name" --parallel 2
   cmake --install "/build-$name"
 }
-cmake_lib zlib -DINSTALL_PKGCONFIG_DIR="$prefix/lib/pkgconfig"
+# zlib 1.3.1's CMake creates shared and static targets with the same output
+# under Emscripten. Its configure script supports an explicit static-only build.
+cd /sources/zlib
+emconfigure ./configure --static --prefix="$prefix"
+emmake make -j2
+emmake make install
 cmake_lib libzip -DENABLE_COMMONCRYPTO=OFF -DENABLE_GNUTLS=OFF -DENABLE_MBEDTLS=OFF \
   -DENABLE_OPENSSL=OFF -DENABLE_BZIP2=OFF -DENABLE_LZMA=OFF -DENABLE_ZSTD=OFF \
   -DBUILD_TOOLS=OFF -DBUILD_REGRESS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_DOC=OFF

@@ -15,6 +15,8 @@ with archive.open('rb') as source:
         file = out / f'engine-source.tar.xz.part{len(parts)+1:03}'
         file.write_bytes(chunk)
         parts.append({'file': file.name, 'bytes': len(chunk), 'sha256': hashlib.sha256(chunk).hexdigest()})
-manifest = {'format': 'xz-compressed tar, split into numbered parts; concatenate in filename order', 'completeSha256': hashlib.file_digest(archive.open('rb'), 'sha256').hexdigest(), 'parts': parts}
+with archive.open('rb') as complete_source:
+    complete_hash = hashlib.file_digest(complete_source, 'sha256').hexdigest()
+manifest = {'format': 'xz-compressed tar, split into numbered parts; concatenate in filename order', 'completeSha256': complete_hash, 'parts': parts}
 (out / 'source-parts.json').write_text(json.dumps(manifest, indent=2)+'\n')
 print(f'Packaged corresponding source in {len(parts)} parts', flush=True)
