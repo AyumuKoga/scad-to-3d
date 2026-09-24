@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ライセンス — SCAD → 3D</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 850px;
+        margin: 60px auto;
+        padding: 0 24px;
+        color: #273d32;
+        line-height: 1.9;
+        background: #f5f6f3;
+      }
+      a {
+        color: #237f68;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      h2 {
+        font-size: 18px;
+        margin-top: 32px;
+      }
+      li {
+        margin: 12px 0;
+      }
+      code {
+        overflow-wrap: anywhere;
+      }
+      .notice {
+        border-left: 3px solid #b88646;
+        padding: 10px 20px;
+        background: #fff8ed;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="./">← アプリに戻る</a>
+    <h1>Open source & ライセンス</h1>
+    <p>
+      SCAD → 3D
+      はOpenSCAD本体のWebAssembly版とThree.jsを利用しています。入力したコードと生成したモデルは端末内で処理されます。
+    </p>
+    <ul>
+      <li>
+        アプリのソース：GPL-2.0-or-later（2026 SCAD → 3D contributors）。<a
+          href="./licenses/app.txt"
+          >ライセンス全文</a
+        >・<a href="./source/scad-to-3d-source.zip">アプリのソース一式</a
+        >。無保証で提供されます。
+      </li>
+      <li>
+        OpenSCAD：The OpenSCAD Developers / GPL v2系。<a
+          href="./licenses/openscad.txt"
+          >ライセンス全文</a
+        >・<a
+          href="https://github.com/openscad/openscad/tree/ce5039f8a9545ad5a8cf197b3ca11c0939bc67f1"
+          >使用版の公式ソース</a
+        >・<a href="https://github.com/openscad/openscad-wasm">WASMビルド環境</a
+        >。使用バイナリは公式配布の
+        OpenSCAD-2025.03.25.wasm24456-WebAssembly-web です。
+      </li>
+      <li>
+        Three.js 0.186.0：Three.js authors / MIT。<a
+          href="./licenses/generated/three.txt"
+          >ライセンス全文</a
+        >
+      </li>
+    </ul>
+    <h2>開発・検証用ツール</h2>
+    <p>
+      <a href="./licenses/generated/dependencies.json"
+        >固定した依存関係の全一覧（バージョン・ライセンス）</a
+      >。 開発依存にはMIT、Apache-2.0、MPL-2.0、ISC、BSD-3-Clauseが含まれます。
+      これらの開発ツール本体はアプリのブラウザ実行用コードには配布していません。
+    </p>
+    <ul>
+      <li>
+        Vite 8.3.0：MIT（同梱する依存の通知を含む）。<a
+          href="./licenses/generated/vite.txt"
+          >全文</a
+        >
+      </li>
+      <li>
+        TypeScript 5.9.3：Microsoft / Apache-2.0。<a
+          href="./licenses/generated/typescript.txt"
+          >全文</a
+        >
+      </li>
+      <li>
+        fflate 0.8.3：Arjun Barrett / MIT。<a
+          href="./licenses/generated/fflate.txt"
+          >全文</a
+        >
+      </li>
+      <li>
+        Playwright 1.63.0：Microsoft / Apache-2.0。<a
+          href="./licenses/generated/playwright.txt"
+          >全文</a
+        >
+      </li>
+    </ul>
+    <h2>ソースとビルド情報</h2>
+    <p>
+      <a href="./source/scad-to-3d-source.zip">本アプリのソース・ビルド手順</a
+      >、
+      <a href="./source/openscad-ce5039f8a.tar.xz">OpenSCAD本体の該当revision</a
+      >、
+      <a
+        href="https://github.com/openscad/openscad/blob/ce5039f8a9545ad5a8cf197b3ca11c0939bc67f1/.circleci/config.yml"
+        >上流のビルド手順</a
+      >を参照できます。
+      OpenSCADの同梱アーカイブにはサブモジュールと外部依存のソースは含まれません。
+      公式WASMの全依存revisionの照合は未完了です。調査状況はアプリソース内の
+      docs/engine-provenance.md に記載しています。
+    </p>
+    <p>
+      学校での利用にも配布条件は適用されます。生成したSCAD/STLに、このアプリのライセンスが自動的に適用されるものではありません。モデルの権利は元のコード等に従います。
+    </p>
+  </body>
+</html>

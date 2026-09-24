@@ -1,0 +1,42 @@
+name: Build engine and corresponding source
+on:
+  workflow_dispatch:
+  push:
+    branches: ['release/source-complete']
+    paths: ['engine-build/**', '.github/workflows/build-engine.yml']
+permissions:
+  contents: write
+concurrency:
+  group: engine-source-release
+  cancel-in-progress: false
+jobs:
+  build:
+    # Standard runners on public repositories are free. Never run on private repos
+    # or larger runners; avoid billed Actions artifacts, caches and Packages.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Fetch and verify source inputs
+        run: python3 engine-build/fetch-sources.py
+      - name: Package corresponding source before compilation
+        run: python3 engine-build/package-source.py
+      - name: Build from verified inputs
+        run: |
+          SDK_IMAGE=$(python3 -c "import json; print(json.load(open('engine-build/sources.lock.json'))['sdkImage'])")
+          docker build --progress=plain --build-arg "SDK_IMAGE=$SDK_IMAGE" --file engine-build/Dockerfile --output type=local,dest=.cache/engine-output .cache/engine-context
+      - name: Prepare release checksums
+        run: |
+          cp .cache/engine-output/* .cache/engine-release/
+          cp engine-build/sources.lock.json .cache/engine-release/
+          cd .cache/engine-release
+          sha256sum openscad.js openscad.wasm engine-corresponding-source.tar.xz > SHA256SUMS
+      - name: Publish candidate with its source (not a site deployment)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="engine-source-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          gh release create "$TAG" .cache/engine-release/* --target "$GITHUB_SHA" --prerelease --title "OpenSCAD source build $GITHUB_RUN_ID" --notes-file engine-build/RELEASE-NOTES.md
