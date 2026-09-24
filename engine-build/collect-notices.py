@@ -14,7 +14,7 @@ for path in sorted(root.rglob('*')):
     if not path.is_file() or path.is_symlink():
         continue
     name = path.name.lower()
-    if not (name.startswith(('license', 'licence', 'copying', 'copyright', 'notice')) or 'LICENSES' in path.parts):
+    if not (name.startswith(('license', 'licence', 'copying', 'copyright', 'notice')) or 'LICENSES' in path.parts or (path.parent.name == 'docs' and name in ['ftl.txt', 'gplv2.txt'])):
         continue
     try:
         body = path.read_text(encoding='utf-8')

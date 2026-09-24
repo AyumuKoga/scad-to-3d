@@ -22,6 +22,7 @@ cmake_lib libzip -DENABLE_COMMONCRYPTO=OFF -DENABLE_GNUTLS=OFF -DENABLE_MBEDTLS=
 cd /sources/boost
 # Match the exception ABI used by OpenSCAD and Emscripten.
 sed -i 's/-fwasm-exceptions/-fexceptions/g' tools/build/src/tools/emscripten.jam
+sed -i '1i# Modified by SCAD to 3D contributors on 2026-09-24: use the OpenSCAD exception ABI.' tools/build/src/tools/emscripten.jam
 ./bootstrap.sh
 ./b2 -j2 --disable-icu --prefix="$prefix" --with-filesystem --with-program_options \
   --with-regex --with-system address-model=32 \
@@ -52,7 +53,7 @@ cd /sources/fontconfig
 python3 - <<'PY'
 from pathlib import Path
 p=Path('Makefile.am');s=p.read_text();a=s.index('SUBDIRS=');b=s.index('\nif ENABLE_DOCS',a)
-s=s[:a]+'SUBDIRS=fontconfig src'+s[b:];s=s.replace('RUN_FC_CACHE_TEST=test -z "$(DESTDIR)"','RUN_FC_CACHE_TEST=false');p.write_text(s)
+s='# Modified by SCAD to 3D contributors on 2026-09-24: build only the cross-compiled library.\n'+s[:a]+'SUBDIRS=fontconfig src'+s[b:];s=s.replace('RUN_FC_CACHE_TEST=test -z "$(DESTDIR)"','RUN_FC_CACHE_TEST=false');p.write_text(s)
 PY
 export FREETYPE_CFLAGS="-I$prefix/include/freetype2"
 export FREETYPE_LIBS="-lfreetype -lz"

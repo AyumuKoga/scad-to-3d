@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Fetch only hash-pinned sources; keep downloads and source trees for redistribution."""
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 import shutil
@@ -27,10 +28,11 @@ def fetch(entry, cache):
     if not destination.exists():
         if not entry['url'].startswith('https://'):
             raise ValueError('Only HTTPS sources are allowed')
+        print(f'Downloading source: {entry["name"]}', flush=True)
         for attempt in range(3):
             try:
                 request = urllib.request.Request(entry['url'], headers={'User-Agent': 'SCAD-to-3D-source-builder'})
-                with urllib.request.urlopen(request, timeout=180) as response, destination.with_suffix('.part').open('wb') as output:
+                with urllib.request.urlopen(request, timeout=60) as response, destination.with_suffix('.part').open('wb') as output:
                     shutil.copyfileobj(response, output)
                 destination.with_suffix('.part').replace(destination)
                 break
@@ -77,8 +79,11 @@ def main():
         raise SystemExit(f'Refusing to overwrite source tree: {context}')
     cache.mkdir(parents=True, exist_ok=True)
     context.mkdir(parents=True)
-    for entry in LOCK['sources']:
-        unpack(entry, fetch(entry, cache), context / 'sources')
+    # Download independent archives concurrently, then extract in dependency order.
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        archives = list(pool.map(lambda entry: fetch(entry, cache), LOCK['sources']))
+    for entry, archive in zip(LOCK['sources'], archives):
+        unpack(entry, archive, context / 'sources')
     shutil.copytree(ROOT, context / 'engine-build', ignore=shutil.ignore_patterns('__pycache__'))
     print(f'Source context ready: {context}', flush=True)
 
