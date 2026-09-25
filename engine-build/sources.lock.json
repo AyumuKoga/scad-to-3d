@@ -6,196 +6,221 @@
   "sources": [
     {
       "name": "eigen",
-      "url": "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/eigen-3.4.0.tar.gz",
       "sha256": "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72",
       "bytes": 2705005,
-      "filename": "eigen-3.4.0.tar.gz"
+      "filename": "eigen-3.4.0.tar.gz",
+      "upstreamUrl": "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"
     },
     {
       "name": "fontconfig",
-      "url": "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.15.0.tar.xz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/fontconfig-2.15.0.tar.xz",
       "sha256": "63a0658d0e06e0fa886106452b58ef04f21f58202ea02a94c39de0d3335d7c0e",
       "bytes": 1447820,
-      "filename": "fontconfig-2.15.0.tar.xz"
+      "filename": "fontconfig-2.15.0.tar.xz",
+      "upstreamUrl": "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.15.0.tar.xz"
     },
     {
       "name": "libxml2",
-      "url": "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.5.tar.xz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/libxml2-2.13.5.tar.xz",
       "sha256": "74fc163217a3964257d3be39af943e08861263c4231f9ef5b496b6f6d4c7b2b6",
       "bytes": 2586872,
-      "filename": "libxml2-2.13.5.tar.xz"
+      "filename": "libxml2-2.13.5.tar.xz",
+      "upstreamUrl": "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.5.tar.xz"
     },
     {
       "name": "gmp",
-      "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/gmp-6.3.0.tar.xz",
       "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
       "bytes": 2094196,
-      "filename": "gmp-6.3.0.tar.xz"
+      "filename": "gmp-6.3.0.tar.xz",
+      "upstreamUrl": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz"
     },
     {
       "name": "mpfr",
-      "url": "https://www.mpfr.org/mpfr-4.2.1/mpfr-4.2.1.tar.xz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/mpfr-4.2.1.tar.xz",
       "sha256": "277807353a6726978996945af13e52829e3abd7a9a5b7fb2793894e18f1fcbb2",
       "bytes": 1493608,
-      "filename": "mpfr-4.2.1.tar.xz"
+      "filename": "mpfr-4.2.1.tar.xz",
+      "upstreamUrl": "https://www.mpfr.org/mpfr-4.2.1/mpfr-4.2.1.tar.xz"
     },
     {
       "name": "boost",
-      "url": "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/boost-1.87.0-b2-nodocs.tar.xz",
       "sha256": "3abd7a51118a5dd74673b25e0a3f0a4ab1752d8d618f4b8cea84a603aeecc680",
       "bytes": 50334440,
-      "filename": "boost-1.87.0-b2-nodocs.tar.xz"
+      "filename": "boost-1.87.0-b2-nodocs.tar.xz",
+      "upstreamUrl": "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz"
     },
     {
       "name": "cgal",
-      "url": "https://codeload.github.com/CGAL/cgal/tar.gz/50cfbde3b84dbeae8338268db2d78fe4fcb522de",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/cgal.tar.gz",
       "commit": "50cfbde3b84dbeae8338268db2d78fe4fcb522de",
       "sha256": "c0fc59224cff5f8ffca38fe44d849481bf0b61a7f1f84e7dcb0680e321977863",
       "filename": "cgal.tar.gz",
-      "bytes": 142848494
+      "bytes": 142848494,
+      "upstreamUrl": "https://codeload.github.com/CGAL/cgal/tar.gz/50cfbde3b84dbeae8338268db2d78fe4fcb522de"
     },
     {
       "name": "freetype",
-      "url": "https://codeload.github.com/freetype/freetype/tar.gz/42608f77f20749dd6ddc9e0536788eaad70ea4b5",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/freetype.tar.gz",
       "commit": "42608f77f20749dd6ddc9e0536788eaad70ea4b5",
       "sha256": "68ce87bb59ea209eb7350f41a94a27519ce16b37011b475a1e62d4abee154b66",
       "filename": "freetype.tar.gz",
-      "bytes": 2483768
+      "bytes": 2483768,
+      "upstreamUrl": "https://codeload.github.com/freetype/freetype/tar.gz/42608f77f20749dd6ddc9e0536788eaad70ea4b5"
     },
     {
       "name": "libffi",
-      "url": "https://codeload.github.com/libffi/libffi/tar.gz/3d0ce1e6fcf19f853894862abcbac0ae78a7be60",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/libffi.tar.gz",
       "commit": "3d0ce1e6fcf19f853894862abcbac0ae78a7be60",
       "sha256": "148ebda16fc2dde2f0538541e7078ecf24628bbbf716fb5367e047192ebb806f",
       "filename": "libffi.tar.gz",
-      "bytes": 598576
+      "bytes": 598576,
+      "upstreamUrl": "https://codeload.github.com/libffi/libffi/tar.gz/3d0ce1e6fcf19f853894862abcbac0ae78a7be60"
     },
     {
       "name": "glib",
-      "url": "https://codeload.github.com/kleisauke/glib/tar.gz/17a1183996f85be8814f4cccc2400c93a2e53cbf",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/glib.tar.gz",
       "commit": "17a1183996f85be8814f4cccc2400c93a2e53cbf",
       "sha256": "23bcb242533deef021a10b6a313fc4f977fe9f951295804a60149f8cad55c638",
       "filename": "glib.tar.gz",
-      "bytes": 9831423
+      "bytes": 9831423,
+      "upstreamUrl": "https://codeload.github.com/kleisauke/glib/tar.gz/17a1183996f85be8814f4cccc2400c93a2e53cbf"
     },
     {
       "name": "harfbuzz",
-      "url": "https://codeload.github.com/harfbuzz/harfbuzz/tar.gz/7b27c8edd46c674e01dd226fa9e1aa7549f5c436",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/harfbuzz.tar.gz",
       "commit": "7b27c8edd46c674e01dd226fa9e1aa7549f5c436",
       "sha256": "818ac15af42769d5806d5f53077664976790264a8fd9161e135904b92ca9a923",
       "filename": "harfbuzz.tar.gz",
-      "bytes": 36857254
+      "bytes": 36857254,
+      "upstreamUrl": "https://codeload.github.com/harfbuzz/harfbuzz/tar.gz/7b27c8edd46c674e01dd226fa9e1aa7549f5c436"
     },
     {
       "name": "libzip",
-      "url": "https://codeload.github.com/nih-at/libzip/tar.gz/64b62d6b1a686a1b0bac1b6b9dcb635be0499afb",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/libzip.tar.gz",
       "commit": "64b62d6b1a686a1b0bac1b6b9dcb635be0499afb",
       "sha256": "1c18ff7a379506e296abbd686ab87f447dad5f385414744db58d5cd333028913",
       "filename": "libzip.tar.gz",
-      "bytes": 1291576
+      "bytes": 1291576,
+      "upstreamUrl": "https://codeload.github.com/nih-at/libzip/tar.gz/64b62d6b1a686a1b0bac1b6b9dcb635be0499afb"
     },
     {
       "name": "zlib",
-      "url": "https://codeload.github.com/madler/zlib/tar.gz/51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/zlib.tar.gz",
       "commit": "51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf",
       "sha256": "d9e270d46252734aa49770fbc544125391617956266f220bd63216c834f3a522",
       "filename": "zlib.tar.gz",
-      "bytes": 1572004
+      "bytes": 1572004,
+      "upstreamUrl": "https://codeload.github.com/madler/zlib/tar.gz/51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf"
     },
     {
       "name": "doubleconversion",
-      "url": "https://codeload.github.com/google/double-conversion/tar.gz/4f7a25d8ced8c7cf6eee6fd09d6788eaa23c9afe",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/doubleconversion.tar.gz",
       "commit": "4f7a25d8ced8c7cf6eee6fd09d6788eaa23c9afe",
       "sha256": "68938ec9e1168e4e5df1123d167f5e110976fde0e8c68c41c1d0e0b9608ec4cb",
       "filename": "doubleconversion.tar.gz",
-      "bytes": 7033334
+      "bytes": 7033334,
+      "upstreamUrl": "https://codeload.github.com/google/double-conversion/tar.gz/4f7a25d8ced8c7cf6eee6fd09d6788eaa23c9afe"
     },
     {
       "name": "openscad",
-      "url": "https://codeload.github.com/openscad/openscad/tar.gz/ce5039f8a9545ad5a8cf197b3ca11c0939bc67f1",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad.tar.gz",
       "commit": "ce5039f8a9545ad5a8cf197b3ca11c0939bc67f1",
       "sha256": "d65f961ed6640b60967a98c1b82f4336e46d3b7ae58231762e70b3c860099253",
       "filename": "openscad.tar.gz",
-      "bytes": 26329043
+      "bytes": 26329043,
+      "upstreamUrl": "https://codeload.github.com/openscad/openscad/tar.gz/ce5039f8a9545ad5a8cf197b3ca11c0939bc67f1"
     },
     {
       "name": "openscad/libraries/MCAD",
-      "url": "https://codeload.github.com/openscad/MCAD/tar.gz/1ea402208c3127ffb443931e9bb1681c191dacca",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad-libraries-MCAD.tar.gz",
       "commit": "1ea402208c3127ffb443931e9bb1681c191dacca",
       "sha256": "3d04077d369814638c3f018fecc39439011a47f545026f43c1a465bce1773f57",
       "filename": "openscad-libraries-MCAD.tar.gz",
-      "bytes": 56943
+      "bytes": 56943,
+      "upstreamUrl": "https://codeload.github.com/openscad/MCAD/tar.gz/1ea402208c3127ffb443931e9bb1681c191dacca"
     },
     {
       "name": "openscad/submodules/manifold",
-      "url": "https://codeload.github.com/elalish/manifold/tar.gz/4edd442297e25bb1dc293559efc548bb0a89b053",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad-submodules-manifold.tar.gz",
       "commit": "4edd442297e25bb1dc293559efc548bb0a89b053",
       "sha256": "71a13b7d87bbbfa71b1771bb6022a7305925bef55c8853c995865f4c709063ee",
       "filename": "openscad-submodules-manifold.tar.gz",
-      "bytes": 29611789
+      "bytes": 29611789,
+      "upstreamUrl": "https://codeload.github.com/elalish/manifold/tar.gz/4edd442297e25bb1dc293559efc548bb0a89b053"
     },
     {
       "name": "openscad/submodules/Clipper2",
-      "url": "https://codeload.github.com/AngusJohnson/Clipper2/tar.gz/6901921c4be75126d1de60bfd24bd86a61319fd0",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad-submodules-Clipper2.tar.gz",
       "commit": "6901921c4be75126d1de60bfd24bd86a61319fd0",
       "sha256": "d4ba8b5a927caab6e2b3d07d9becd5bf3775489494fd84251e7d288e3b43ae4b",
       "filename": "openscad-submodules-Clipper2.tar.gz",
-      "bytes": 621021
+      "bytes": 621021,
+      "upstreamUrl": "https://codeload.github.com/AngusJohnson/Clipper2/tar.gz/6901921c4be75126d1de60bfd24bd86a61319fd0"
     },
     {
       "name": "openscad/submodules/mimalloc",
-      "url": "https://codeload.github.com/microsoft/mimalloc/tar.gz/fe61be80bf8942e764e18d469e96f8dacab44728",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad-submodules-mimalloc.tar.gz",
       "commit": "fe61be80bf8942e764e18d469e96f8dacab44728",
       "sha256": "414f9abb64d692a59c91132695e9cf01c2ded2d05f57aca4a597cf3e746fb191",
       "filename": "openscad-submodules-mimalloc.tar.gz",
-      "bytes": 1128112
+      "bytes": 1128112,
+      "upstreamUrl": "https://codeload.github.com/microsoft/mimalloc/tar.gz/fe61be80bf8942e764e18d469e96f8dacab44728"
     },
     {
       "name": "openscad/submodules/sanitizers-cmake",
-      "url": "https://codeload.github.com/arsenm/sanitizers-cmake/tar.gz/c3dc841af4dbf44669e65b82cb68a575864326bd",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad-submodules-sanitizers-cmake.tar.gz",
       "commit": "c3dc841af4dbf44669e65b82cb68a575864326bd",
       "sha256": "19d511a3a4ddc872c89ab62c070dd8d1fcc733e6ea4655f5876a60237cd556ba",
       "filename": "openscad-submodules-sanitizers-cmake.tar.gz",
-      "bytes": 7433
+      "bytes": 7433,
+      "upstreamUrl": "https://codeload.github.com/arsenm/sanitizers-cmake/tar.gz/c3dc841af4dbf44669e65b82cb68a575864326bd"
     },
     {
       "name": "openscad/submodules/OpenCSG",
-      "url": "https://codeload.github.com/floriankirsch/OpenCSG/tar.gz/313018fbf997f484f66cb4a320bbd2abf79a4fc1",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/openscad-submodules-OpenCSG.tar.gz",
       "commit": "313018fbf997f484f66cb4a320bbd2abf79a4fc1",
       "sha256": "e6da517ab86422ed822e09c71e1ca6a673149fbbac50e7f3cb94f2daa3f7999d",
       "filename": "openscad-submodules-OpenCSG.tar.gz",
-      "bytes": 302671
+      "bytes": 302671,
+      "upstreamUrl": "https://codeload.github.com/floriankirsch/OpenCSG/tar.gz/313018fbf997f484f66cb4a320bbd2abf79a4fc1"
     },
     {
       "name": "glib/subprojects/gvdb",
-      "url": "https://codeload.github.com/GNOME/gvdb/tar.gz/2b42fc75f09dbe1cd1057580b5782b08f2dcb400",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/glib-subprojects-gvdb.tar.gz",
       "commit": "2b42fc75f09dbe1cd1057580b5782b08f2dcb400",
       "sha256": "069a00aa1fc893f18423602f4e095583be5a220429f6e8a58d70511490b4b019",
       "filename": "glib-subprojects-gvdb.tar.gz",
-      "bytes": 24716
+      "bytes": 24716,
+      "upstreamUrl": "https://codeload.github.com/GNOME/gvdb/tar.gz/2b42fc75f09dbe1cd1057580b5782b08f2dcb400"
     },
     {
       "name": "emscripten",
-      "url": "https://codeload.github.com/emscripten-core/emscripten/tar.gz/1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/emscripten.tar.gz",
       "commit": "1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5",
       "filename": "emscripten.tar.gz",
       "sha256": "cb1314abc98468aa64af648f54bdf94e9ade98dd62618c5843c7e60908ffbeb0",
-      "bytes": 32215717
+      "bytes": 32215717,
+      "upstreamUrl": "https://codeload.github.com/emscripten-core/emscripten/tar.gz/1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5"
     },
     {
       "name": "glib/subprojects/pcre2-10.44",
-      "url": "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.44/pcre2-10.44.tar.bz2",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/pcre2-10.44.tar.bz2",
       "filename": "pcre2-10.44.tar.bz2",
       "sha256": "d34f02e113cf7193a1ebf2770d3ac527088d485d4e047ed10e5d217c6ef5de96",
-      "bytes": 1928086
+      "bytes": 1928086,
+      "upstreamUrl": "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.44/pcre2-10.44.tar.bz2"
     },
     {
       "name": "glib/subprojects",
-      "url": "https://wrapdb.mesonbuild.com/v2/pcre2_10.44-2/get_patch",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/pcre2_10.44-2_patch.zip",
       "filename": "pcre2_10.44-2_patch.zip",
       "sha256": "4336d422ee9043847e5e10dbbbd01940d4c9e5027f31ccdc33a7898a1ca94009",
       "format": "zip-overlay",
-      "bytes": 3644
+      "bytes": 3644,
+      "upstreamUrl": "https://wrapdb.mesonbuild.com/v2/pcre2_10.44-2/get_patch"
     }
   ]
 }
