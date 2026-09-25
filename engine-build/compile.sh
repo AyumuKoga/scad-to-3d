@@ -52,12 +52,22 @@ cd /sources/fontconfig
 # archive already contains the generated fc-lang/fc-case headers used by libfontconfig.
 python3 - <<'PY'
 from pathlib import Path
-p=Path('Makefile.am');s=p.read_text();a=s.index('SUBDIRS=');b=s.index('\nif ENABLE_DOCS',a)
-s='# Modified by SCAD to 3D contributors on 2026-09-24: build only the cross-compiled library.\n'+s[:a]+'SUBDIRS=fontconfig src'+s[b:];s=s.replace('RUN_FC_CACHE_TEST=test -z "$(DESTDIR)"','RUN_FC_CACHE_TEST=false');p.write_text(s)
+import re
+for name in ['Makefile.am', 'Makefile.in']:
+    path = Path(name)
+    lines = path.read_text().splitlines(keepends=True)
+    start = next(i for i, line in enumerate(lines) if re.match(r'^SUBDIRS[ \t]*=', line))
+    end = start
+    while lines[end].rstrip().endswith('\\'):
+        end += 1
+    lines[start:end + 1] = ['SUBDIRS = fontconfig src\n']
+    text = '# Modified by SCAD to 3D contributors on 2026-09-25: build only the cross-compiled library.\n' + ''.join(lines)
+    text = re.sub(r'(RUN_FC_CACHE_TEST\s*=\s*)test -z "\$\(DESTDIR\)"', r'\1false', text)
+    path.write_text(text)
 PY
 export FREETYPE_CFLAGS="-I$prefix/include/freetype2"
 export FREETYPE_LIBS="-lfreetype -lz"
-emconfigure ./autogen.sh --host=none --disable-docs --disable-shared --enable-static \
+emconfigure ./configure --host=none --disable-docs --disable-shared --enable-static \
   --sysconfdir=/ --localstatedir=/ --with-default-fonts=/fonts --enable-libxml2 --prefix="$prefix"
 emmake make -j2
 emmake make install
