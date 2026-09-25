@@ -1,14 +1,14 @@
 # 共通パスワードでの限定提供・費用0円
 
-## 現状（2026-09-24）
+## 現状（2026-09-25）
 
 共通パスワードによる限定提供を開始済み。専用プロジェクトは `scad-to-3d-private`、公開先は https://scad-to-3d-private.pages.dev/ 。
 
-- 管理画面で Workers Free / $0 / Current plan を確認。
+- 管理画面で Workers Free / $0 / Current plan を2026-09-24に確認。有料プラン・課金対象リソースの追加なし。
 - 公開URLでChromium / WebKitの認証・生成・STL保存テスト4件成功。
 - production・previewの両方に `SITE_AUTH_SHA256` Secretを設定。
 - 両環境の `fail_open: false` をAPI応答で確認。
-- OpenSCADの依存ソース照合には残件あり。[来歴](engine-provenance.md) に記録。完全なライセンス対応が完了したとは扱わない。
+- 入力ソースを固定して再ビルドしたエンジンと、依存を含む対応ソースを同時提供。[来歴](engine-provenance.md) に記録。旧公式バイナリのデプロイは削除済み。
 
 ## パスワード管理
 

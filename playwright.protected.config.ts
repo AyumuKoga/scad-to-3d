@@ -11,7 +11,7 @@ export default defineConfig({
   timeout: 90_000,
   expect: { timeout: 60_000 },
   workers: 1,
-  reporter: "list",
+  reporter: "./tests/support/private-reporter.ts",
   // Credentials are supplied only to the test context; never record traces or HAR.
   use: { baseURL, trace: "off", video: "off" },
   projects: [
