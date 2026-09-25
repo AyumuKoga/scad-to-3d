@@ -80,6 +80,6 @@ E2Eは開発サーバーではなく `dist/` を検証します。実WASMで17�
 
 ## ライセンス
 
-[GitHubのソース](https://github.com/AyumuKoga/scad-to-3d)・[使用エンジンと対応ソース](https://github.com/AyumuKoga/scad-to-3d/releases/tag/engine-source-36078553836-1)・[再ビルド手順](engine-build/README.md)・[note掲載用の案内](docs/note-license-disclosure.md)。
+[GitHubのソース](https://github.com/AyumuKoga/scad-to-3d)・[使用エンジンと対応ソース](https://github.com/AyumuKoga/scad-to-3d/releases/tag/engine-source-36078553836-1)・[再ビルド手順](engine-build/README.md)。
 
 アプリの新規ソースは **GPL-2.0-or-later**。本文は [LICENSE](LICENSE) を参照してください。OpenSCADの条件および各依存の表示を `public/licenses.html` にまとめています。GPL対象バイナリを配布する際には、それに対応する完全なソースとビルド情報の提供が必要です。上流のトップページへのリンクのみで完了とは扱っていません。生成したモデルにアプリのGPLが自動付与されるものではありません。

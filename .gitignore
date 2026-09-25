@@ -19,3 +19,4 @@ worker-configuration.d.ts
 public/source/
 artifacts/
 __pycache__/
+.private/
