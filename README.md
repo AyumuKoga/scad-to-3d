@@ -1,6 +1,12 @@
 # SCAD → 3D
 
-OpenSCADコードを貼り付け、ブラウザで3D形状を確認し、STLを保存する静的Webアプリです。モデル処理は端末内で完結します。共通パスワードの認証ゲートを実装済みです。[公開サイト](https://scad-to-3d-private.pages.dev/) をCloudflare Freeでパスワード付き限定提供しています。費用と認証設定は下記の運用文書を参照してください。
+OpenSCADコードをブラウザで3D表示し、STLファイルとして保存するWebアプリです。モデル処理はWebAssemblyとWeb Workerを使って端末内で行います。
+
+- コード入力・SCADファイルの読み込みと保存
+- 3Dプレビュー、視点切り替え、mm/cmの寸法表示
+- STLのダウンロード
+- Cloudflare Pages向けの共通パスワード認証
+
 
 ## 起動
 
@@ -15,7 +21,7 @@ npm run dev
 
 ## 使い方
 
-1. 任意のAIから取得したSCADコードを左側へ貼り付けます。Markdownのコード囲みは除きます。
+1. OpenSCADコードを左側へ貼り付けます。Markdownのコード囲みは除きます。
 2. **3Dモデル生成**を押します。初回はエンジンのロードが必要です。
 3. ドラッグで回転、ホイールでズーム、右ドラッグでパン。タッチでは1本指で回転、2本指でズーム・パンします。7つの視点ボタンと全体表示も使えます。
 4. **STLをダウンロード**を押し、Bambu Studio等でmmとして開きます。
@@ -39,9 +45,11 @@ npm run preview
 
 `dist/` が静的配信対象です。`file://` ではなくHTTP(S)で配信してください。特殊なCOOP/COEPヘッダーは不要です。
 
-**共通パスワードで限定公開します。** 公開用ビルドには全パスを保護するCloudflare Pages認証ゲートを含みます。Workers Free契約を管理画面で確認し、本番・プレビュー両方をFail closedに設定済みです。対応ソース・エンジンの固定情報は [来歴](docs/engine-provenance.md) を参照してください。
+Cloudflare Pages用ビルドには、全パスを保護する認証ゲートが含まれます。デプロイ先で `SITE_AUTH_SHA256` SecretとFail closedを設定してください。[デプロイと認証の手順](docs/private-deployment.md)を参照してください。
 
-[限定提供と費用0円の条件](docs/private-deployment.md) を参照してください。パスワード保護のローカル確認は `npm run preview:protected`（127.0.0.1:8788）で行います。`npm run preview` と `npm run dev` はUI開発用で認証はありません。`dist` を汎用静的ホストへ置くだけでは認証されません。
+`npm run dev` と `npm run preview` は認証なしのローカル開発用です。認証付きの確認には `npm run preview:protected` を使用します。Cloudflare用の認証ゲートは、汎用の静的ホストでは実行されません。
+
+配布エンジンと対応ソースは[来歴](docs/engine-provenance.md)、エンジンの構築方法は[再ビルド手順](engine-build/README.md)を参照してください。
 
 ## 検証
 
@@ -74,7 +82,7 @@ E2Eは開発サーバーではなく `dist/` を検証します。実WASMで17�
 | `src/viewer.ts` | STL検証、Three.js、カメラ操作、GPU解放 |
 | `src/examples.ts` | ブラケット、スタンド、ホルダー、基本形状 |
 | `scripts/prepare-assets.mjs` | 固定エンジンの検証・配置、ライセンス同梱 |
-| `docs/architecture.md` | 実装前調査・選定・データフロー・一次資料 |
+| `docs/architecture.md` | 構成・設計判断・データフロー |
 
 将来はWorkerの出力形式とビューア入力を追加することで拡張できます。現時点ではSTLだけを扱い、3MF/STEPや計測機能は含めません。
 
