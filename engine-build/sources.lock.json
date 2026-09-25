@@ -72,12 +72,12 @@
     },
     {
       "name": "libffi",
-      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/libffi.tar.gz",
+      "url": "https://github.com/AyumuKoga/scad-to-3d/releases/download/engine-inputs-20260924/libffi-3.4.6.tar.gz",
       "commit": "3d0ce1e6fcf19f853894862abcbac0ae78a7be60",
-      "sha256": "148ebda16fc2dde2f0538541e7078ecf24628bbbf716fb5367e047192ebb806f",
-      "filename": "libffi.tar.gz",
-      "bytes": 598576,
-      "upstreamUrl": "https://codeload.github.com/libffi/libffi/tar.gz/3d0ce1e6fcf19f853894862abcbac0ae78a7be60"
+      "sha256": "b0dea9df23c863a7a50e825440f3ebffabd65df1497108e5d437747843895a4e",
+      "filename": "libffi-3.4.6.tar.gz",
+      "bytes": 1391684,
+      "upstreamUrl": "https://github.com/libffi/libffi/releases/download/v3.4.6/libffi-3.4.6.tar.gz"
     },
     {
       "name": "glib",

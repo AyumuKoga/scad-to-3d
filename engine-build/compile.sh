@@ -30,7 +30,7 @@ sed -i '1i# Modified by SCAD to 3D contributors on 2026-09-24: use the OpenSCAD 
   linkflags="-stdlib=libc++ -fexceptions" link=static runtime-link=static \
   release toolset=emscripten install
 cd /sources/libffi
-./autogen.sh
+# Official release configure avoids regenerating macros with an older host libtool.
 emconfigure ./configure --host=wasm32-unknown-linux --prefix="$prefix" \
   --enable-static --disable-shared --disable-dependency-tracking \
   --disable-builddir --disable-multi-os-directory --disable-raw-api --disable-docs
