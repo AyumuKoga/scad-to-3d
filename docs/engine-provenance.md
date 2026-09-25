@@ -2,7 +2,7 @@
 
 ## 現行のソースビルド
 
-- エンジンリリース：[engine-source-36078553836-1](https://github.com/AyumuKoga/scad-to-3d/releases/tag/engine-source-36078553836-1)。
+- エンジンリリース：[engine-source-36078553836-1](https://github.com/YumYum-cad/scad-to-3d/releases/tag/engine-source-36078553836-1)。
 - ビルドしたアプリリポジトリのcommit：`ca3017ad9847f8874c31d86088dfd402debfe784`。
 - OpenSCAD本体：`ce5039f8a9545ad5a8cf197b3ca11c0939bc67f1`。
 - SDK：`emscripten/emsdk:3.1.74@sha256:af45409f3199d88db4b1b03af0098532c8fb33a375ac257463eeb0a622870d06`。
