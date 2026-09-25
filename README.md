@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-表示されたローカルURLを開きます。初回 `npm ci` では公式の固定版OpenSCAD WASMを取得し、公開SHA-256と照合します。取得失敗時はネットワークを確認して `npm run build` を再実行してください。開発サーバーはデフォルトでローカル端末のみから利用できます。
+表示されたローカルURLを開きます。初回 `npm ci` では固定した自前ビルドのOpenSCAD WASMと対応ソースをGitHub Releasesから取得し、SHA-256と照合します。依存ライブラリを含むソースも配置するため、初回は数百MBを取得します。取得失敗時はネットワークを確認して `npm run build` を再実行してください。開発サーバーはデフォルトでローカル端末のみから利用できます。
 
 ## 使い方
 
@@ -39,7 +39,7 @@ npm run preview
 
 `dist/` が静的配信対象です。`file://` ではなくHTTP(S)で配信してください。特殊なCOOP/COEPヘッダーは不要です。
 
-**共通パスワードで限定公開します。** 公開用ビルドには全パスを保護するCloudflare Pages認証ゲートを含みます。Workers Free契約を管理画面で確認し、本番・プレビュー両方をFail closedに設定済みです。OpenSCADの依存ソース照合の残件は [来歴](docs/engine-provenance.md) を参照してください。
+**共通パスワードで限定公開します。** 公開用ビルドには全パスを保護するCloudflare Pages認証ゲートを含みます。Workers Free契約を管理画面で確認し、本番・プレビュー両方をFail closedに設定済みです。対応ソース・エンジンの固定情報は [来歴](docs/engine-provenance.md) を参照してください。
 
 [限定提供と費用0円の条件](docs/private-deployment.md) を参照してください。パスワード保護のローカル確認は `npm run preview:protected`（127.0.0.1:8788）で行います。`npm run preview` と `npm run dev` はUI開発用で認証はありません。`dist` を汎用静的ホストへ置くだけでは認証されません。
 
@@ -79,5 +79,7 @@ E2Eは開発サーバーではなく `dist/` を検証します。実WASMで17�
 将来はWorkerの出力形式とビューア入力を追加することで拡張できます。現時点ではSTLだけを扱い、3MF/STEPや計測機能は含めません。
 
 ## ライセンス
+
+[GitHubのソース](https://github.com/AyumuKoga/scad-to-3d)・[使用エンジンと対応ソース](https://github.com/AyumuKoga/scad-to-3d/releases/tag/engine-source-36078553836-1)・[再ビルド手順](engine-build/README.md)・[note掲載用の案内](docs/note-license-disclosure.md)。
 
 アプリの新規ソースは **GPL-2.0-or-later**。本文は [LICENSE](LICENSE) を参照してください。OpenSCADの条件および各依存の表示を `public/licenses.html` にまとめています。GPL対象バイナリを配布する際には、それに対応する完全なソースとビルド情報の提供が必要です。上流のトップページへのリンクのみで完了とは扱っていません。生成したモデルにアプリのGPLが自動付与されるものではありません。

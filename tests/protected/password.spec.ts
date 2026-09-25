@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 
 test("every file requires authentication, including the 3D engine", async ({
   request,
@@ -9,6 +10,10 @@ test("every file requires authentication, including the 3D engine", async ({
     "/engine/openscad.js",
     "/engine/openscad.wasm",
     "/licenses.html",
+    "/source/",
+    "/source/scad-to-3d-source.zip",
+    "/source/source-parts.json",
+    "/source/engine-source.tar.xz.part001",
     "/favicon.svg",
     "/unknown",
   ]) {
@@ -52,6 +57,32 @@ test("authorized browsers can render and download through the password gate", as
     const bytes = await readFile(file!);
     expect(bytes.readUInt32LE(80)).toBe(12);
     expect(bytes.length).toBe(84 + 12 * 50);
+    const sourcePage = await context.request.get(`${baseURL}/source/`);
+    expect(sourcePage.status()).toBe(200);
+    expect(await sourcePage.text()).toContain("対応するソース");
+    const manifestResponse = await context.request.get(`${baseURL}/source/source-parts.json`);
+    expect(manifestResponse.status()).toBe(200);
+    const manifest = await manifestResponse.json();
+    expect(manifest.completeSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(manifest.parts.length).toBeGreaterThan(0);
+    for (const part of manifest.parts) {
+      expect(part.file).toMatch(/^engine-source\.tar\.xz\.part\d{3}$/);
+      // Workers may omit Content-Length on HEAD. A ranged GET checks actual
+      // availability and the complete file size without downloading every byte.
+      const response = await context.request.get(`${baseURL}/source/${part.file}`, {
+        headers: { Range: "bytes=0-0" },
+      });
+      if (response.status() === 206) {
+        expect(response.headers()["content-range"]).toBe(`bytes 0-0/${part.bytes}`);
+        expect((await response.body()).length).toBe(1);
+      } else {
+        expect(response.status()).toBe(200);
+        const body = await response.body();
+        expect(body.length).toBe(part.bytes);
+        expect(createHash("sha256").update(body).digest("hex")).toBe(part.sha256);
+      }
+      await response.dispose();
+    }
   } finally {
     await context.close();
   }

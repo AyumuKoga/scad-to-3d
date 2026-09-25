@@ -1,6 +1,6 @@
 # OpenSCAD WASM source build
 
-This recipe builds a new engine from explicitly pinned source inputs. It does **not** claim to reproduce the old official `2025.03.25.wasm24456` binary. The application still uses that binary until a candidate from this recipe passes its browser tests; see `docs/engine-provenance.md` for deployment status.
+This recipe builds a new engine from explicitly pinned source inputs. It does **not** claim to reproduce the old official `2025.03.25.wasm24456` binary. The application selects a browser-tested source build through `release.json`; see `docs/engine-provenance.md` for deployment status.
 
 ## Inputs and licenses
 

@@ -3,7 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches: ['release/source-complete']
-    paths: ['engine-build/**', '.github/workflows/build-engine.yml']
+    paths:
+      - 'engine-build/**'
+      - '!engine-build/release.json'
+      - '!engine-build/README.md'
+      - '.github/workflows/build-engine.yml'
 permissions:
   contents: write
 concurrency:

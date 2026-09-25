@@ -104,3 +104,13 @@ Windows実機Chrome/Edge、実製品Safari、実iPadのSafari/ファイル保存
 - 公開ファイルと展開したアプリソースZIPにパスワード・認証ハッシュが含まれないことを確認。
 - 証跡：artifacts/cloudflare-deployment.json、artifacts/deployment-verification.json。
 - OpenSCAD外部依存revisionの完全な照合は未完了。docs/engine-provenance.mdに残件を記録。
+
+
+## ソースを固定したエンジンへの更新（2026-09-25）
+
+- GitHub Actions run `36078553836` が成功。OpenSCAD `ce5039f8a`、Emscripten 3.1.74の記録済みソースから生成したJS/WASMを使用。
+- 対応ソース287,260,324 bytes、15分割。各ファイル・結合後のSHA-256を確認し、tarとして読めること、入力25件とビルドレシピが含まれることを確認。
+- アプリ単体テスト17件、ソース検証のPythonテスト4件、Chromium/WebKit E2E20件が成功。実WASMによる17種類の形状、STLの有限座標・体積・cm表示、大きいモデル、失敗後の復旧を含む。
+- ローカル認証テスト4件成功。認証拒否と実WASM生成に加え、認証後のソース全15分割の部分取得とサイズを確認。HEADではContent-Lengthが省略され得るため、検証にはRange GETを使用。
+- キャッシュしたJSを1 byte改変した場合に配布用スクリプトが検証エラーで停止することを確認し、その後元のキャッシュへ戻した。
+- ビルドで見られた上流の警告：MPFR向けの `-ffloat-store` はClangで無効、ヘッダーのみのCGALでは `BUILD_SHARED_LIBS` が未使用。ビルドは成功し、実形状のテストも通過。上流ソースはこの警告を抑制するためには改変していない。
